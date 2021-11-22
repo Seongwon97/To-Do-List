@@ -22,7 +22,7 @@ public class TodoService {
         todoEntity.setTitle(request.getTitle());
         todoEntity.setOrder(request.getOrder());
         todoEntity.setCompleted(request.getCompleted());
-        return todoRepository.save(todoEntity);
+        return this.todoRepository.save(todoEntity);
     }
 
     public TodoEntity searchById(Long id) {
@@ -31,7 +31,7 @@ public class TodoService {
     }
 
     public List<TodoEntity> searchAll() {
-        return todoRepository.findAll();
+        return this.todoRepository.findAll();
     }
 
     public TodoEntity updateById(Long id, TodoRequest request) {
@@ -45,15 +45,15 @@ public class TodoService {
         if (request.getCompleted() != null) {
             todoEntity.setCompleted(request.getCompleted());
         }
-        return todoRepository.save(todoEntity);
+        return this.todoRepository.save(todoEntity);
     }
 
     public void deleteById(Long id) {
-        todoRepository.deleteById(id);
+        this.todoRepository.deleteById(id);
     }
 
     public void deleteAll() {
-        todoRepository.deleteAll();
+        this.todoRepository.deleteAll();
     }
 
 }
